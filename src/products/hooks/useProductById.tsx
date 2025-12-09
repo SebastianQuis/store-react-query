@@ -9,6 +9,7 @@ export default function useProductById(id: number) {
         queryKey: ['products', { id }],
         queryFn: () => getProductById(id),
         staleTime: 1000 * 60 * 60, // 1 hora
+        retry: 1, // reintentar solo 1 vez en caso de fallo
     });
 
     return {

@@ -9,7 +9,6 @@ export const usePrefetchProduct = () => {
         queryClient.prefetchQuery({
             queryKey: ['product', { id }],
             queryFn: () => getProductById(id),
-            staleTime: 1000 * 60 * 60 * 5, // 5 horas
         });
     }
 

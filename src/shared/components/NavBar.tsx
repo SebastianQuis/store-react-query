@@ -43,7 +43,7 @@ export const NavBar = () => {
 
         <NavbarItem>
 
-          <Button as={NavLink}  to="/new" variant="flat">
+          <Button as={NavLink} to="/new" variant="flat">
             Nuevo producto
           </Button>
 

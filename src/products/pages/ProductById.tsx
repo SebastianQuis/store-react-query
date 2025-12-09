@@ -1,4 +1,4 @@
-import { redirect, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { ProductCard } from ".."
 import useProductById from "../hooks/useProductById";
 import { useEffect } from "react";
@@ -6,9 +6,12 @@ import { useEffect } from "react";
 export const ProductById = () => {
 
   const { id } = useParams();
+  const navigate = useNavigate();
+
 
   if (Number.isNaN(Number(id))) {
-    redirect('/');
+    console.log(id);
+    navigate('/');
   }
 
   const { isLoading, product } = useProductById(Number(id));
@@ -22,8 +25,6 @@ export const ProductById = () => {
 
   return (
     <div className="flex-col">
-      {/* <h1 className="text-2xl font-bold">Producto by id</h1> */}
-
       {isLoading && <p>Cargando productos...</p>}
 
       {product &&
